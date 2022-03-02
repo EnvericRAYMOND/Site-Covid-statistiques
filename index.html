@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Covid19</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
+	<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/riot@5.3.0/riot+compiler.min.js"></script>
+
+
+
+	
+
+	<!-- tags riot -->
+	<script src="tags/app.riot" type="riot"></script>
+	<script src="tags/tableau.riot" type="riot"></script>
+	<script src="tags/date.riot" type="riot"></script>
+
+	<script src="js/recup-data.js"></script> 
+
+	<link rel="stylesheet" href="css/main.css">
+
+	
+
+	<header><h1>Covid19</h1><date></date></header>
+	<br>
+	<br>
+</head>
+<body>
+
+	<app></app>
+
+	<tableau></tableau>
+	
+
+	
+</body>
+<script>
+	
+	
+	riot.compile().then(()=>{
+		riot.install(function(component){
+			if (component.name == "app")
+				component.data_recup = recupData()
+		})
+
+		riot.install(function(component){
+			if (component.name == "tableau")
+				component.data_recup = recupData()
+		})
+
+		riot.install(function(component){
+			if (component.name == "date")
+				component.data_recup = recupData()
+		})
+
+
+		riot.mount("app")
+		riot.mount("tableau")
+		riot.mount("date")
+		
+	})
+</script>
+
+
+</html>

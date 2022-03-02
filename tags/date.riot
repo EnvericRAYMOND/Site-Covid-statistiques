@@ -1,0 +1,55 @@
+<date>
+
+    <div id ="infos">
+            <div class="contain">
+                        <p>Cas : {this.jour}/{this.mois+1}/{this.annee}</p>
+        
+            </div>
+    </div>
+
+    <script>
+        export default{
+            state:{/*on initialise l'objet state avant de recup des trucs*/
+                jour:0,
+                mois:0,
+                annee:0,
+
+            },
+            onBeforeMount(props, state){/*avant qu'on voit le tableau*/
+                // console.log("Fonction onBeforeMount");
+                this.changeState();
+            },
+            async changeState(){/*promesse async donc function async*/
+                // console.log("Fonction ChangeState");
+                let rec;
+
+                try{
+                    rec=await this.data_recup;
+                    j = new Date();
+                    m = new Date();
+                    a = new Date();
+
+                
+                    
+                }
+                catch{
+
+                }
+                this.jour = j.getDate();
+                this.mois = m.getUTCMonth();
+                this.annee = a.getFullYear();
+
+                
+                this.update();
+            }
+
+        }
+
+    </script>
+
+
+
+
+
+
+</date>

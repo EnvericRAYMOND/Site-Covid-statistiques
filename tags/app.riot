@@ -1,0 +1,90 @@
+<app>
+    <div id ="infos">
+            <div class="contain">
+                <h1 id="titre">Total :</h1>
+                    <ul>
+                        <li id="cas">Cas : {this.state.total_cas}</li>
+                        <li id="morts">Morts : {this.state.total_morts}</li>
+                        <li id="gueris">Guéris : {this.state.total_gueris}</li>
+                        
+                    </ul>
+            </div>
+            <div class="contain">
+                <h1 id="titre">Aujourd'hui :</h1>
+                    <ul>
+                        <li id="cas">Cas : {this.state.nouv_cas}</li>
+                        <li id="morts">Morts : {this.state.nouv_morts}</li>
+                        <li id="gueris">Guéris : {this.state.nouv_gueris}</li>
+                    </ul>
+            </div>
+    </div>
+
+    <script>
+        export default{
+            state:{/*on initialise l'objet state avant de recup des trucs*/
+                total_soignes:0,
+                total_cas:0,
+                total_morts:0,
+
+                nouv_soignes:0,
+                nouv_cas:0,
+                nouv_morts:0,
+            },
+            onBeforeMount(props, state){/*avant qu'on voit le tableau*/
+                // console.log("Fonction onBeforeMount");
+                this.changeState();/*nouvelle fonction qui change le state*/
+            },
+            async changeState(){/*promesse async donc function async*/
+                // console.log("Fonction ChangeState");
+                let resultat;
+                try{
+                    rec=await this.data_recup;
+                    
+                }
+                catch{
+
+                }
+
+
+
+                var retrievedData = localStorage.getItem("data");
+                let res = JSON.parse(retrievedData);
+
+
+                this.state.total_gueris = res.Global.TotalRecovered;
+                this.state.total_cas=res.Global.TotalConfirmed;
+                this.state.total_morts=res.Global.TotalDeaths;
+
+                this.state.nouv_gueris=res.Global.NewRecovered;
+                this.state.nouv_cas=res.Global.NewConfirmed;
+                this.state.nouv_morts=res.Global.NewDeaths;
+
+                this.update();
+            }
+
+        }
+
+    </script>
+
+    
+
+    <style> /*flexbox, space-around -> centre, width -> place laissée à chaque element*/
+        #infos{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
+        :host{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        .contain{
+            width:20%;
+        }
+    </style>
+
+
+</app>

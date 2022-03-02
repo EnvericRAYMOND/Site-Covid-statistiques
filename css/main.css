@@ -1,0 +1,91 @@
+th {
+  font-weight: 600; }
+
+td,
+th {
+  border-bottom: 1.08px solid #595959;
+  padding: 14.85px 18px;
+  text-align: left;
+  vertical-align: top; }
+
+thead th {
+  border-bottom-width: 2.16px;
+  padding-bottom: 6.3px; }
+
+table {
+  display: table;
+  width: 100%; }
+  @media all and (max-width: 1024px) {
+    table {
+      display: none; } }
+  @media all and (max-width: 1024px) {
+    table thead {
+      display: none; } }
+  table tr {
+    border-bottom-width: 2.16px; }
+    table tr th {
+      border-bottom-width: 2.16px; }
+    table tr td,
+    table tr th {
+      overflow: hidden;
+      padding: 5.4px 3.6px; }
+      @media all and (max-width: 1024px) {
+        table tr td,
+        table tr th {
+          border: 0;
+          display: inline-block; } }
+    @media all and (max-width: 1024px) {
+      table tr {
+        display: inline-block;
+        margin: 10.8px 0; } }
+  @media all and (max-width: 1024px) {
+    table {
+      display: inline-block; } }
+
+
+#titre{
+  font-weight: bold;
+  text-decoration: underline;
+  margin-left: 5%;
+}
+
+#new{
+  font-weight: bold;
+  text-decoration: underline;
+  margin-left: 100%;
+}
+
+
+#gueris{
+  color: #70dc9c;
+}
+
+#cas{
+  color: #2596be;
+}
+
+#morts{
+  color: #f77386;
+}
+
+li{
+  padding : 5px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  padding-left: 15%;
+  padding-top: 5%;
+}
+
+header p {
+	padding-left: 10px;
+	padding-top: 30px;
+}
+
+.cumul {
+    padding-left: 20%;
+    padding-top:4%;
+    padding-bottom: 2%;
+}
